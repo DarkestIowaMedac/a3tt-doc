@@ -1,0 +1,6 @@
+Un tipo any es un tipo que hace referencia a que el dato de puede ser de cualquier tipo.
+
+Esto se inferirá si no tipamos las variable, pero también se puede indicar explicitamente 
+con el formato:
+
+let disney: any;

@@ -1,0 +1,6 @@
+Encapsulamiento: 
+Consiste en usar variables privadas para acceder a ellas con getters y setters.
+
+Variables genéricas: con <T> se declara un tipo genérico.
+Cuando se crea una instancia, se pondrá el tipo específico entre <> con lo que los <T> pasarán a ser lo que se indique
+en la instanciación para dicha instancia.

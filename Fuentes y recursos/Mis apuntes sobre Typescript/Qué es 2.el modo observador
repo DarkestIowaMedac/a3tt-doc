@@ -1,0 +1,19 @@
+El modo observador es una característica de typescript que consiste en que, 
+mientras este modo está activo, no hace falta compilar el ts para convertirlo a un js válido
+que el navegador pueda entender, sino que por el contrario cada vez que haya cambios, se compilará 
+el código a JS.
+
+Para activar el modo observador se usa:
+tsc script.ts -w (el primer argumento es el archivo a convertir y luego se ubica el -watch para activar el observador)
+
+Importante esto solo funciona para un único archivo indicado. 
+
+Si queremos que todos los archivos tsc sean observados deberemos iniciar nuestro proyecto como proyecto typescript
+Esto se hace con tsc -init 
+Además esto permite modificar algunas configuraciones. 
+
+Para inicializar un proyecto como proyecto tsc se indica el comando tsc -init
+
+Después se puede ubicar tsc -w y ya estaremos observando todos los cambios. 
+
+Muchas configuraciones como el tipo de tipado también pueden ser modificadas de ser necesario.

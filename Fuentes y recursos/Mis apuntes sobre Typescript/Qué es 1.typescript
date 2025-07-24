@@ -1,0 +1,9 @@
+Es un super conjunto de javascript
+Sus características son:
+1. Es tipado
+2. Los métodos dependen del tipo de dato
+3. Es más robusto y hace que el código en react y angular
+sea más robusto que si no se usase (aunque en angular
+es obligatorio)
+
+

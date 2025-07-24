@@ -1,0 +1,61 @@
+Los primitivos son:
+String, Number, Boolean, Undefined, null. 
+
+Compuestos: 
+Object, Array, Enum, Function (sí, function es un tipo de dato)
+
+Los definidos por el usuario:
+Class, Interface, typescript
+
+
+Strings: 
+Funcionan como en javascript, con ', " o los templates `
+
+Numbers: 
+Pueden ser enteros, exponenciales, exponenciales
+base 16 con x, base 8 con o binarios con b 
+sería 0x, 0o o 0b, seguido del número.
+
+Sobre los objetos. Un objeto tiene atributos y sus valores. 
+Cada parte del objeto es de un tipo de dato diferente (podría ser otro objeto)
+Ahora bien, estos objetos tienen datos que a priori no estarán tipados. ¿Como se tipan? Con una interfaz
+Esto lo explicaré más adelante.
+
+Importante que los datos no tienen por qué tiparse si pueden ser inferidos, no es obligatorio.
+
+Los arrays tienen datos dentro de sí que deben ser del mismo tipo. Esto se indica poniendo [] después del tipo
+
+Los enum son listas de cosas.
+Pueden ser lista de cosas como Lunes Martes Miércoles etc
+También pueden ser Enum con valores de cadena (String enums) donde a cada dato del enum se le asigna
+un valor de tipo string.
+
+Cuando jugamos con funciones se usan los dos puntos para decidir el tipo de los argumentos pero también
+usamos dos puntos fuera de los paréntesis para luego decir el tipo de dato que devuelve la función. 
+Siempre que vamos a indicar un tipo de dato este viene acompañado por dos puntos previos. 
+
+Aún con todo, a veces typescript puede inferir el tipo de retorno de una función. 
+Suele ser cuando la función es simple o usa datos que contienen datos con tipos ya definidos 
+(estilo array de enteros, un map, un filter)´
+
+En el caso de las clases:
+Los atributos son tipados
+Los métodos se tipan como se tipan las funciones.
+
+En el caso de las interfaces:
+Cada interfaz debe tener definidos los nombres de sus atributos o datos y sus métodos.
+Estos atributos y métodos deben ser implementados por el objeto, la función o la clase que implemente de la interfaz
+porque... IMPORTANTE! Aquí pueden implementar no solo las clases, sino que los objetos y las funciones también. 
+
+Aunque parezca un lío por los tipados que ocupan cierto espacio en el código, todo sigue las bases que ya son conocidas.
+
+Finalmente, se pueden crear tipos personalizados con la palabra clave type.
+
+Para ello, podemos hacer tipos union con type Nombre = string | null
+También puede declararse un conjunto de datos (como un objeto con determinados atributos de determinados tipos) como
+un determinado tipo que contendrá dicha información
+
+Al igual que con las interfaces, los tipos pueden aplicarse a clases y a funciones.
+Nuevamente la sintaxis no es nada más extravagante de lo ya conocido hasta ahora.
+
+Importante, se pueden declarar atributos opcionales con el caracter '?' después del nombre del atributo.

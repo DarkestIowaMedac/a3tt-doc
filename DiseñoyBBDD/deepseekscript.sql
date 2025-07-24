@@ -1,0 +1,46 @@
+-- Tabla USER
+CREATE TABLE "User" (
+    Id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Name VARCHAR2(100) NOT NULL,
+    Email VARCHAR2(255) UNIQUE NOT NULL,
+    Password VARCHAR2(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    LastLogin TIMESTAMP,
+    IsActive NUMBER(1) DEFAULT 1 CHECK (IsActive IN (0,1))
+);
+
+-- Tabla CATEGORY
+CREATE TABLE Category (
+    Id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Name VARCHAR2(100) NOT NULL,
+    UserId NUMBER NOT NULL,
+    Color VARCHAR2(20),
+    FOREIGN KEY (UserId) REFERENCES "User"(Id),
+    CONSTRAINT UQ_Category_User UNIQUE (Name, UserId)
+);
+
+-- Tabla TASK
+CREATE TABLE Task (
+    Id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Name VARCHAR2(255) NOT NULL,
+    Description VARCHAR2(4000),
+    State VARCHAR2(20) NOT NULL CHECK (State IN ('pending', 'completed', 'archived')),
+    DueDate TIMESTAMP,
+    Priority NUMBER(2) DEFAULT 1,
+    UserId NUMBER NOT NULL,
+    CategoryId NUMBER,
+    ParentTaskId NUMBER,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Position NUMBER,
+    FOREIGN KEY (UserId) REFERENCES "User"(Id),
+    FOREIGN KEY (CategoryId) REFERENCES Category(Id),
+    FOREIGN KEY (ParentTaskId) REFERENCES Task(Id)
+);
+
+-- Índices recomendados
+CREATE INDEX IDX_Task_User ON Task(UserId);
+CREATE INDEX IDX_Task_Parent ON Task(ParentTaskId);
+CREATE INDEX IDX_Task_Category ON Task(CategoryId);
+CREATE INDEX IDX_Task_DueDate ON Task(DueDate);
+CREATE INDEX IDX_Task_Priority ON Task(Priority);
